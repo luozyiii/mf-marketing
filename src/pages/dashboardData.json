@@ -1,0 +1,145 @@
+{
+  "todayData": {
+    "activeUsers": {
+      "value": 1284,
+      "change": 12.5,
+      "trend": "up"
+    },
+    "newUsers": {
+      "value": 156,
+      "change": 8.3,
+      "trend": "up"
+    },
+    "pageViews": {
+      "value": 8924,
+      "change": -2.1,
+      "trend": "down"
+    },
+    "conversionRate": {
+      "value": 3.24,
+      "change": 15.6,
+      "trend": "up"
+    },
+    "revenue": {
+      "value": 45680,
+      "change": 22.8,
+      "trend": "up"
+    },
+    "orders": {
+      "value": 89,
+      "change": 18.9,
+      "trend": "up"
+    }
+  },
+  "weeklyData": {
+    "activeUsers": [
+      { "date": "2024-01-26", "value": 1156 },
+      { "date": "2024-01-27", "value": 1203 },
+      { "date": "2024-01-28", "value": 1089 },
+      { "date": "2024-01-29", "value": 1245 },
+      { "date": "2024-01-30", "value": 1198 },
+      { "date": "2024-01-31", "value": 1267 },
+      { "date": "2024-02-01", "value": 1284 }
+    ],
+    "newUsers": [
+      { "date": "2024-01-26", "value": 134 },
+      { "date": "2024-01-27", "value": 145 },
+      { "date": "2024-01-28", "value": 128 },
+      { "date": "2024-01-29", "value": 167 },
+      { "date": "2024-01-30", "value": 142 },
+      { "date": "2024-01-31", "value": 159 },
+      { "date": "2024-02-01", "value": 156 }
+    ],
+    "pageViews": [
+      { "date": "2024-01-26", "value": 8456 },
+      { "date": "2024-01-27", "value": 8723 },
+      { "date": "2024-01-28", "value": 7892 },
+      { "date": "2024-01-29", "value": 9234 },
+      { "date": "2024-01-30", "value": 8567 },
+      { "date": "2024-01-31", "value": 9123 },
+      { "date": "2024-02-01", "value": 8924 }
+    ],
+    "conversionRate": [
+      { "date": "2024-01-26", "value": 2.89 },
+      { "date": "2024-01-27", "value": 3.12 },
+      { "date": "2024-01-28", "value": 2.76 },
+      { "date": "2024-01-29", "value": 3.45 },
+      { "date": "2024-01-30", "value": 3.01 },
+      { "date": "2024-01-31", "value": 3.38 },
+      { "date": "2024-02-01", "value": 3.24 }
+    ],
+    "revenue": [
+      { "date": "2024-01-26", "value": 38920 },
+      { "date": "2024-01-27", "value": 42150 },
+      { "date": "2024-01-28", "value": 35680 },
+      { "date": "2024-01-29", "value": 48230 },
+      { "date": "2024-01-30", "value": 41560 },
+      { "date": "2024-01-31", "value": 46890 },
+      { "date": "2024-02-01", "value": 45680 }
+    ],
+    "orders": [
+      { "date": "2024-01-26", "value": 76 },
+      { "date": "2024-01-27", "value": 82 },
+      { "date": "2024-01-28", "value": 68 },
+      { "date": "2024-01-29", "value": 94 },
+      { "date": "2024-01-30", "value": 79 },
+      { "date": "2024-01-31", "value": 87 },
+      { "date": "2024-02-01", "value": 89 }
+    ]
+  },
+  "campaignData": [
+    {
+      "name": "春节促销活动",
+      "status": "active",
+      "impressions": 125680,
+      "clicks": 3456,
+      "conversions": 234,
+      "cost": 8920,
+      "revenue": 15680
+    },
+    {
+      "name": "新用户注册优惠",
+      "status": "active", 
+      "impressions": 89340,
+      "clicks": 2134,
+      "conversions": 156,
+      "cost": 5670,
+      "revenue": 9890
+    },
+    {
+      "name": "老客户回购",
+      "status": "paused",
+      "impressions": 67890,
+      "clicks": 1876,
+      "conversions": 98,
+      "cost": 4320,
+      "revenue": 7650
+    }
+  ],
+  "topChannels": [
+    {
+      "channel": "搜索引擎",
+      "users": 3456,
+      "percentage": 35.2,
+      "change": 8.5
+    },
+    {
+      "channel": "社交媒体",
+      "users": 2890,
+      "percentage": 29.4,
+      "change": 12.3
+    },
+    {
+      "channel": "直接访问",
+      "users": 2134,
+      "percentage": 21.7,
+      "change": -3.2
+    },
+    {
+      "channel": "邮件营销",
+      "users": 1345,
+      "percentage": 13.7,
+      "change": 15.8
+    }
+  ]
+}

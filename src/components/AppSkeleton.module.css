@@ -1,0 +1,367 @@
+/* 容器 */
+.container {
+  padding: 16px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 骨架屏动画 */
+@keyframes skeletonPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* 页面头部 */
+.pageHeader {
+  margin-bottom: 24px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.breadcrumbItem {
+  width: 60px;
+  height: 14px;
+  background: #e8e8e8;
+  border-radius: 3px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.breadcrumbSeparator {
+  width: 8px;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 2px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.pageTitle {
+  width: 200px;
+  height: 32px;
+  background: #d9d9d9;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.pageDescription {
+  width: 300px;
+  height: 16px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+/* 统计卡片 */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.statContent {
+  flex: 1;
+}
+
+.statValue {
+  width: 80px;
+  height: 24px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.statLabel {
+  width: 100px;
+  height: 16px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.statTrend {
+  width: 60px;
+  height: 20px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+/* 图表区域 */
+.chartsSection {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.chartCard {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chartTitle {
+  width: 120px;
+  height: 20px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.chartActions {
+  display: flex;
+  gap: 8px;
+}
+
+.chartButton {
+  width: 60px;
+  height: 28px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.chartLegend {
+  display: flex;
+  gap: 16px;
+}
+
+.legendItem {
+  width: 80px;
+  height: 16px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.chartContent {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 柱状图 */
+.chartPlaceholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.chartBars {
+  display: flex;
+  align-items: end;
+  justify-content: space-around;
+  height: 80%;
+  padding: 0 20px;
+}
+
+.chartBar {
+  width: 20px;
+  background: #e8e8e8;
+  border-radius: 2px 2px 0 0;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.chartAxis {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #f0f0f0;
+}
+
+/* 饼图 */
+.pieChart {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.pieSlice1,
+.pieSlice2,
+.pieSlice3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.pieSlice1 {
+  background: conic-gradient(#e8e8e8 0deg 120deg, transparent 120deg);
+}
+
+.pieSlice2 {
+  background: conic-gradient(transparent 0deg 120deg, #f0f0f0 120deg 240deg, transparent 240deg);
+}
+
+.pieSlice3 {
+  background: conic-gradient(transparent 0deg 240deg, #f5f5f5 240deg 360deg);
+}
+
+.pieCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* 表格区域 */
+.tableSection {
+  margin-bottom: 24px;
+}
+
+.tableCard {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.tableHeader {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tableTitle {
+  width: 100px;
+  height: 20px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.tableActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.searchBox {
+  width: 200px;
+  height: 32px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.actionButton {
+  width: 80px;
+  height: 32px;
+  background: #e8e8e8;
+  border-radius: 6px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.tableContent {
+  padding: 0 20px;
+}
+
+.tableHeaderRow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tableHeaderCell {
+  height: 16px;
+  background: #e8e8e8;
+  border-radius: 3px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableCell {
+  height: 16px;
+  background: #f5f5f5;
+  border-radius: 3px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.tableCell:nth-child(1) { width: 80%; }
+.tableCell:nth-child(2) { width: 60%; }
+.tableCell:nth-child(3) { width: 90%; }
+.tableCell:nth-child(4) { width: 70%; }
+.tableCell:nth-child(5) { width: 50%; }
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chartsSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .tableHeaderRow,
+  .tableRow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .tableHeaderCell:nth-child(n+4),
+  .tableCell:nth-child(n+4) {
+    display: none;
+  }
+}
