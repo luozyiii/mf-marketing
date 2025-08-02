@@ -3,13 +3,13 @@ export const deploymentConfig = {
   // 主应用 URL
   shellApp: {
     development: 'http://localhost:3000',
-    production: 'https://luozyiii.github.io/mf-shell/'
+    production: 'https://luozyiii.github.io/mf-shell'
   },
 
   // 当前营销模块 URL
   marketingApp: {
     development: 'http://localhost:3001',
-    production: 'https://luozyiii.github.io/mf-marketing/'
+    production: 'https://luozyiii.github.io/mf-marketing'
   },
 
   // 路由 basename 配置

@@ -1,3 +1,5 @@
+import { currentConfig } from '../config/deployment';
+
 // 认证相关工具类
 export class AuthUtils {
   // 存储键名
@@ -104,7 +106,8 @@ export class AuthUtils {
   static redirectToLogin(returnUrl?: string): void {
     const currentUrl = returnUrl || window.location.href;
     // 跳转到主应用登录页面
-    window.location.href = `http://localhost:3000/login?returnUrl=${encodeURIComponent(currentUrl)}`;
+    const shellUrl = currentConfig.shellUrl;
+    window.location.href = `${shellUrl}/login?returnUrl=${encodeURIComponent(currentUrl)}`;
   }
 
   /**
@@ -114,7 +117,8 @@ export class AuthUtils {
     this.removeToken();
     // 跳转到主应用登录页面，携带当前页面作为回调地址
     const currentUrl = window.location.href;
-    window.location.href = `http://localhost:3000/login?returnUrl=${encodeURIComponent(currentUrl)}`;
+    const shellUrl = currentConfig.shellUrl;
+    window.location.href = `${shellUrl}/login?returnUrl=${encodeURIComponent(currentUrl)}`;
   }
 
   /**
