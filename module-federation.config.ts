@@ -1,7 +1,8 @@
-import { ModuleFederationConfig } from '@module-federation/enhanced/webpack';
+import { ModuleFederationOptions } from '@module-federation/rsbuild-plugin';
 
-const config: ModuleFederationConfig = {
+const config: ModuleFederationOptions = {
   name: 'marketing',
+  filename: 'remoteEntry.js',
   exposes: {
     './App': './src/App.tsx',
   },
