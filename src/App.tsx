@@ -102,6 +102,15 @@ const App: React.FC = () => {
 
   const basename = getBasename();
 
+  // 调试信息
+  console.log('App Debug Info:', {
+    NODE_ENV: process.env.NODE_ENV,
+    pathname: window.location.pathname,
+    href: window.location.href,
+    basename: basename,
+    isInMicroFrontend: isInMicroFrontend
+  });
+
   return (
     <ConfigProvider locale={zhCN}>
       <Router basename={basename}>
