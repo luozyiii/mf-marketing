@@ -6,6 +6,7 @@ import { marketingRoutes } from './routes';
 import { Layout } from './components/Layout';
 import { AuthGuard } from './components/AuthGuard';
 import { AuthUtils } from './utils/authUtils';
+import { currentConfig } from './config/deployment';
 import { Dashboard } from './pages/Dashboard';
 import { Campaigns } from './pages/Campaigns';
 import { Customers } from './pages/Customers';
@@ -98,12 +99,12 @@ const App: React.FC = () => {
   // 获取 basename 配置
   // 在生产环境下使用 /mf-marketing，开发环境下不使用 basename
   const getBasename = () => {
-    if (process.env.NODE_ENV === 'production') {
+    if (currentConfig.isProduction) {
       // 在 GitHub Pages 上独立运行时使用 /mf-marketing
       // 在主应用中集成时，主应用会处理 /mf-shell/marketing 路径
-      return window.location.pathname.startsWith('/mf-marketing') ? '/mf-marketing' : '';
+      return window.location.pathname.startsWith('/mf-marketing') ? currentConfig.basename : '';
     }
-    return '';
+    return currentConfig.basename;
   };
 
   const basename = getBasename();
