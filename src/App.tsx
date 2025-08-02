@@ -24,6 +24,15 @@ const AppRoutes: React.FC = () => {
     // 暴露路由配置API
     (window as any).getRoutes = () => marketingRoutes;
 
+    // 处理 404 重定向
+    const redirectPath = sessionStorage.getItem('spa_redirect_path');
+    if (redirectPath) {
+      console.log('Found redirect path:', redirectPath);
+      sessionStorage.removeItem('spa_redirect_path');
+      // 使用 navigate 进行路由跳转
+      navigate(redirectPath, { replace: true });
+    }
+
     // 模拟应用初始化加载
     const initializeApp = async () => {
       // 模拟数据加载、权限检查等
