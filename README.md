@@ -1,4 +1,4 @@
-# 微前端营销模块 (Micro Frontend Marketing)
+# 微前端营销系统 (Micro Frontend Marketing)
 
 一个基于 React + TypeScript + Module Federation 的微前端营销管理系统，提供营销活动管理、客户管理、数据分析等功能。
 
@@ -89,6 +89,22 @@ npm run preview
 # 或使用 yarn
 yarn preview
 ```
+
+### GitHub Pages 部署
+
+```bash
+# 构建 GitHub Pages 版本
+npm run build:gh-pages
+
+# 部署到 GitHub Pages (自动化)
+npm run deploy
+```
+
+项目配置了自动部署到 GitHub Pages，当代码推送到 `main` 分支时会自动触发部署。
+
+**在线访问**: [https://your-username.github.io/mf-marketing/](https://your-username.github.io/mf-marketing/)
+
+详细部署说明请参考 [DEPLOYMENT.md](./DEPLOYMENT.md)。
 
 ## 🏗️ 微前端架构
 
