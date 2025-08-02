@@ -14,7 +14,7 @@ export default defineConfig({
   output: {
     // GitHub Pages 部署配置
     assetPrefix: process.env.NODE_ENV === 'production'
-      ? 'https://luozyiii.github.io/mf-marketing/' // 使用完整的 GitHub Pages URL
+      ? '/mf-marketing/' // 使用相对路径，让浏览器自动处理协议和域名
       : '/',
   },
   source: {
