@@ -11,7 +11,6 @@ import { Campaigns } from './pages/Campaigns';
 import { Customers } from './pages/Customers';
 import { Analytics } from './pages/Analytics';
 import { NotFound } from './pages/NotFound';
-import { Debug } from './pages/Debug';
 import { AppSkeleton } from './components/AppSkeleton';
 import './App.css';
 
@@ -27,7 +26,6 @@ const AppRoutes: React.FC = () => {
     // 处理 404 重定向
     const redirectPath = sessionStorage.getItem('spa_redirect_path');
     if (redirectPath) {
-      console.log('Found redirect path:', redirectPath);
       sessionStorage.removeItem('spa_redirect_path');
       // 使用 navigate 进行路由跳转
       navigate(redirectPath, { replace: true });
@@ -68,7 +66,6 @@ const AppRoutes: React.FC = () => {
       <Route path="/campaigns" element={<Campaigns />} />
       <Route path="/customers" element={<Customers />} />
       <Route path="/analytics" element={<Analytics />} />
-      <Route path="/debug" element={<Debug />} />
       <Route path="/" element={<Dashboard />} />
       {/* 404 页面 - 必须放在最后 */}
       <Route path="*" element={<NotFound />} />
@@ -94,7 +91,7 @@ const App: React.FC = () => {
       newUrl.searchParams.delete('token');
       window.history.replaceState({}, '', newUrl.toString());
 
-      console.log('Token received and stored from URL');
+
     }
   }, []);
 
@@ -111,14 +108,7 @@ const App: React.FC = () => {
 
   const basename = getBasename();
 
-  // 调试信息
-  console.log('App Debug Info:', {
-    NODE_ENV: process.env.NODE_ENV,
-    pathname: window.location.pathname,
-    href: window.location.href,
-    basename: basename,
-    isInMicroFrontend: isInMicroFrontend
-  });
+
 
   return (
     <ConfigProvider locale={zhCN}>

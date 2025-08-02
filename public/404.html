@@ -8,20 +8,15 @@
     // GitHub Pages SPA 路由处理
     // 将路径信息保存到 sessionStorage，然后重定向到根路径
     (function(l) {
-      console.log('404.html - Current location:', l.href);
-      console.log('404.html - Pathname:', l.pathname);
-
       // 检查是否是 /mf-marketing 子路径
       if (l.pathname.startsWith('/mf-marketing/') && l.pathname !== '/mf-marketing/') {
         // 提取子路径
         var subPath = l.pathname.replace('/mf-marketing/', '');
-        console.log('404.html - Extracted subPath:', subPath);
 
         // 保存路径信息到 sessionStorage
         sessionStorage.setItem('spa_redirect_path', '/' + subPath + l.search + l.hash);
 
         // 重定向到根路径
-        console.log('404.html - Redirecting to root, saved path:', '/' + subPath + l.search + l.hash);
         window.location.replace('/mf-marketing/');
       } else if (l.pathname === '/mf-marketing') {
         // 如果访问的是 /mf-marketing (没有尾部斜杠)，重定向到带斜杠的版本

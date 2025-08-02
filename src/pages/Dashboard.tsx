@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import { Card, Row, Col, Statistic, Typography, Tabs, Space, Tag, Table, Alert, Button } from 'antd';
+import { Card, Row, Col, Statistic, Typography, Tabs, Space, Tag, Table } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined, UserOutlined, EyeOutlined, ShoppingCartOutlined, DollarOutlined } from '@ant-design/icons';
 import { Line, Column, Pie } from '@ant-design/charts';
-import { useNavigate } from 'react-router-dom';
 import dashboardData from './dashboardData.json';
-import { AuthUtils } from '../utils/authUtils';
-import { currentConfig } from '../config/deployment';
 
 const { Title, Text } = Typography;
 
 export const Dashboard: React.FC = () => {
   const [data] = useState(dashboardData);
-  const navigate = useNavigate();
 
   // 格式化数字显示
   const formatNumber = (num: number) => {
@@ -41,42 +37,6 @@ export const Dashboard: React.FC = () => {
 
   return (
     <div style={{ padding: '16px' }}>
-      {/* 调试信息 - 仅在生产环境显示 */}
-      {process.env.NODE_ENV === 'production' && (
-        <Alert
-          message="调试信息"
-          description={
-            <div>
-              <p><strong>环境:</strong> {process.env.NODE_ENV}</p>
-              <p><strong>当前URL:</strong> {window.location.href}</p>
-              <p><strong>主应用URL:</strong> {currentConfig.shellUrl}</p>
-              <p><strong>Token:</strong> {AuthUtils.getToken() ? '已设置' : '未设置'}</p>
-              <p><strong>是否在iframe:</strong> {window.parent !== window ? '是' : '否'}</p>
-              <Button
-                size="small"
-                onClick={() => navigate('/debug')}
-                style={{ marginTop: '8px', marginRight: '8px' }}
-              >
-                访问调试页面
-              </Button>
-              <Button
-                size="small"
-                onClick={() => {
-                  AuthUtils.setToken('test-token-' + Date.now());
-                  window.location.reload();
-                }}
-                style={{ marginTop: '8px' }}
-              >
-                设置测试Token
-              </Button>
-            </div>
-          }
-          type="info"
-          showIcon
-          style={{ marginBottom: '16px' }}
-        />
-      )}
-
       {/* 今日数据概览 */}
       <div style={{ marginBottom: 24 }}>
         <Title level={4} style={{ marginTop: 0,marginBottom: 16 }}>今日数据概览</Title>
