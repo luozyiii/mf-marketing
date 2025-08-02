@@ -47,6 +47,7 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          PUBLIC_URL: https://luozyiii.github.io/mf-marketing/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

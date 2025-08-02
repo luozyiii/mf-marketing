@@ -102,7 +102,9 @@ npm run deploy
 
 项目配置了自动部署到 GitHub Pages，当代码推送到 `main` 分支时会自动触发部署。
 
-**在线访问**: [https://your-username.github.io/mf-marketing/](https://your-username.github.io/mf-marketing/)
+**在线访问**: [https://luozyiii.github.io/mf-marketing/](https://luozyiii.github.io/mf-marketing/)
+
+**主应用集成**: 通过主应用访问 [https://luozyiii.github.io/mf-shell/marketing](https://luozyiii.github.io/mf-shell/marketing)
 
 详细部署说明请参考 [DEPLOYMENT.md](./DEPLOYMENT.md)。
 

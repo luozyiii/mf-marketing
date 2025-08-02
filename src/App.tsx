@@ -87,10 +87,18 @@ const App: React.FC = () => {
     }
   }, []);
 
-  // 检测是否需要使用basename
-  // 只有当URL路径包含/marketing时才使用basename
-  const needsBasename = window.location.pathname.startsWith('/marketing');
-  const basename = needsBasename ? "/marketing" : "";
+  // 获取 basename 配置
+  // 在生产环境下使用 /mf-marketing，开发环境下不使用 basename
+  const getBasename = () => {
+    if (process.env.NODE_ENV === 'production') {
+      // 在 GitHub Pages 上独立运行时使用 /mf-marketing
+      // 在主应用中集成时，主应用会处理 /mf-shell/marketing 路径
+      return window.location.pathname.startsWith('/mf-marketing') ? '/mf-marketing' : '';
+    }
+    return '';
+  };
+
+  const basename = getBasename();
 
   return (
     <ConfigProvider locale={zhCN}>

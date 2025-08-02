@@ -42,8 +42,10 @@ GitHub Actions workflow (`.github/workflows/deploy.yml`) 会在以下情况下�
 
 部署完成后，应用将可通过以下 URL 访问：
 ```
-https://<your-username>.github.io/mf-marketing/
+https://luozyiii.github.io/mf-marketing/
 ```
+
+**主应用集成**: 营销模块将自动集成到主应用 `https://luozyiii.github.io/mf-shell/` 中。
 
 ## 🛠️ 手动部署
 
@@ -84,8 +86,16 @@ output: {
 ### 重要配置项
 
 1. **assetPrefix**: 设置资源路径前缀，确保在 GitHub Pages 子路径下正确加载资源
-2. **publicPath**: 自动根据环境设置公共路径
-3. **html.title**: 设置页面标题
+2. **basename**: React Router 的基础路径，生产环境使用 `/mf-marketing`
+3. **PUBLIC_URL**: 环境变量，用于设置公共资源路径
+4. **html.title**: 设置页面标题
+
+### basename 处理逻辑
+
+营销模块会根据访问方式自动调整 basename：
+
+- **独立访问**: `https://luozyiii.github.io/mf-marketing/` → basename: `/mf-marketing`
+- **主应用集成**: `https://luozyiii.github.io/mf-shell/marketing` → basename: `` (空，由主应用处理)
 
 ## 🔧 自定义配置
 
@@ -95,13 +105,13 @@ output: {
 
 1. **rsbuild.config.ts**：
    ```typescript
-   assetPrefix: process.env.NODE_ENV === 'production' 
-     ? '/your-repo-name/' // 替换为你的仓库名
+   assetPrefix: process.env.NODE_ENV === 'production'
+     ? 'https://luozyiii.github.io/mf-marketing/' // 使用完整 URL
      : '/',
    ```
 
-2. **DEPLOYMENT.md** (本文件)：
-   更新访问 URL 中的仓库名
+2. **module-federation.config.ts**：
+   确保 Module Federation 配置正确
 
 ### 自定义域名
 

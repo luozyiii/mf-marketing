@@ -14,7 +14,15 @@ export default defineConfig({
   output: {
     // GitHub Pages 部署配置
     assetPrefix: process.env.NODE_ENV === 'production'
-      ? '/mf-marketing/' // 替换为你的仓库名
+      ? 'https://luozyiii.github.io/mf-marketing/' // 使用完整的 GitHub Pages URL
       : '/',
+  },
+  source: {
+    // 设置 basename 用于路由
+    define: {
+      'process.env.PUBLIC_URL': JSON.stringify(
+        process.env.NODE_ENV === 'production' ? '/mf-marketing' : ''
+      ),
+    },
   },
 });

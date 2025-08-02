@@ -7,7 +7,8 @@
     "build": "rsbuild build",
     "build:gh-pages": "NODE_ENV=production rsbuild build",
     "preview": "rsbuild preview",
-    "deploy": "npm run build:gh-pages"
+    "deploy": "npm run build:gh-pages",
+    "test:config": "node scripts/test-config.js"
   },
   "dependencies": {
     "@ant-design/charts": "^2.6.1",
