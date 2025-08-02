@@ -28,6 +28,7 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
 
         if (!hasToken) {
           // 没有token，跳转到登录页面
+          console.log('No token found, redirecting to login...');
           AuthUtils.redirectToLogin();
           return;
         }

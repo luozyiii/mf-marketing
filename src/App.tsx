@@ -11,6 +11,7 @@ import { Campaigns } from './pages/Campaigns';
 import { Customers } from './pages/Customers';
 import { Analytics } from './pages/Analytics';
 import { NotFound } from './pages/NotFound';
+import { Debug } from './pages/Debug';
 import { AppSkeleton } from './components/AppSkeleton';
 import './App.css';
 
@@ -58,6 +59,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/campaigns" element={<Campaigns />} />
       <Route path="/customers" element={<Customers />} />
       <Route path="/analytics" element={<Analytics />} />
+      <Route path="/debug" element={<Debug />} />
       <Route path="/" element={<Dashboard />} />
       {/* 404 页面 - 必须放在最后 */}
       <Route path="*" element={<NotFound />} />
