@@ -4,6 +4,7 @@ import { ArrowUpOutlined, ArrowDownOutlined, UserOutlined, EyeOutlined, Shopping
 import { Line, Column, Pie } from '@ant-design/charts';
 import dashboardData from './dashboardData.json';
 
+
 const { Title, Text } = Typography;
 
 export const Dashboard: React.FC = () => {
@@ -144,12 +145,6 @@ export const Dashboard: React.FC = () => {
                           size: 4,
                           shape: 'circle',
                         }}
-                        tooltip={{
-                          formatter: (datum: any) => ({
-                            name: '活跃用户',
-                            value: formatNumber(datum.value),
-                          }),
-                        }}
                         xAxis={{
                           tickCount: 7,
                           label: {
@@ -175,12 +170,6 @@ export const Dashboard: React.FC = () => {
                         point={{
                           size: 4,
                           shape: 'circle',
-                        }}
-                        tooltip={{
-                          formatter: (datum: any) => ({
-                            name: '新增用户',
-                            value: datum.value,
-                          }),
                         }}
                         xAxis={{
                           tickCount: 7,
@@ -211,12 +200,7 @@ export const Dashboard: React.FC = () => {
                         color="#722ed1"
                         height={200}
                         padding={[20, 20, 50, 50]}
-                        tooltip={{
-                          formatter: (datum: any) => ({
-                            name: '页面浏览量',
-                            value: formatNumber(datum.value),
-                          }),
-                        }}
+
                         xAxis={{
                           label: {
                             formatter: (text: any) => {
@@ -242,12 +226,7 @@ export const Dashboard: React.FC = () => {
                           size: 4,
                           shape: 'circle',
                         }}
-                        tooltip={{
-                          formatter: (datum: any) => ({
-                            name: '转化率',
-                            value: datum.value + '%',
-                          }),
-                        }}
+
                         xAxis={{
                           tickCount: 7,
                           label: {
@@ -324,12 +303,6 @@ export const Dashboard: React.FC = () => {
                 size: 4,
                 shape: 'circle',
               }}
-              tooltip={{
-                formatter: (datum: any) => ({
-                  name: '收入',
-                  value: formatCurrency(datum.value),
-                }),
-              }}
               xAxis={{
                 tickCount: 7,
                 label: {
@@ -351,12 +324,7 @@ export const Dashboard: React.FC = () => {
               color="#eb2f96"
               height={200}
               padding={[20, 20, 50, 50]}
-              tooltip={{
-                formatter: (datum: any) => ({
-                  name: '订单数',
-                  value: datum.value,
-                }),
-              }}
+
               xAxis={{
                 label: {
                   formatter: (text: any) => {
@@ -383,12 +351,7 @@ export const Dashboard: React.FC = () => {
               colorField="type"
               radius={0.8}
               label={false}
-              tooltip={{
-                formatter: (datum: any) => ({
-                  name: datum.type,
-                  value: formatNumber(datum.value) + ' 用户',
-                }),
-              }}
+
               legend={{
                 position: 'bottom',
               }}

@@ -1,6 +1,6 @@
-import { ModuleFederationOptions } from '@module-federation/rsbuild-plugin';
+import { createModuleFederationConfig } from '@module-federation/rsbuild-plugin';
 
-const config: ModuleFederationOptions = {
+export default createModuleFederationConfig({
   name: 'marketing',
   filename: 'remoteEntry.js',
   exposes: {
@@ -28,6 +28,4 @@ const config: ModuleFederationOptions = {
       eager: false
     },
   },
-};
-
-export default config;
+});
