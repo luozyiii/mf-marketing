@@ -21,27 +21,29 @@ export function isValidValue(value: any): boolean {
 export function safeTooltipFormatter(
   datum: any,
   name: string,
-  formatter?: (value: any) => string
+  formatter?: (_value: any) => string
 ): { name: string; value: string } {
   // Check if datum exists and has a valid value
   if (!datum || !isValidValue(datum.value)) {
     return {
       name,
-      value: '暂无数据'
+      value: '暂无数据',
     };
   }
 
   try {
-    const formattedValue = formatter ? formatter(datum.value) : String(datum.value);
+    const formattedValue = formatter
+      ? formatter(datum.value)
+      : String(datum.value);
     return {
       name,
-      value: formattedValue
+      value: formattedValue,
     };
   } catch (error) {
     console.warn('Error formatting tooltip value:', error);
     return {
       name,
-      value: '暂无数据'
+      value: '暂无数据',
     };
   }
 }
@@ -54,10 +56,10 @@ export function safeTooltipFormatter(
  */
 export function createSafeTooltip(
   name: string,
-  formatter?: (value: any) => string
+  formatter?: (_value: any) => string
 ) {
   return {
-    formatter: (datum: any) => safeTooltipFormatter(datum, name, formatter)
+    formatter: (datum: any) => safeTooltipFormatter(datum, name, formatter),
   };
 }
 
@@ -83,11 +85,13 @@ export function filterValidData<T extends Record<string, any>>(
 
     const value = item[valueField];
     // More strict filtering to ensure clean data
-    return value !== null &&
-           value !== undefined &&
-           !Number.isNaN(value) &&
-           typeof value === 'number' &&
-           isFinite(value);
+    return (
+      value !== null &&
+      value !== undefined &&
+      !Number.isNaN(value) &&
+      typeof value === 'number' &&
+      isFinite(value)
+    );
   });
 }
 
@@ -98,12 +102,12 @@ export function filterValidData<T extends Record<string, any>>(
  * @returns Filtered and validated chart data
  */
 export function getSafeChartData<T extends Record<string, any>>(
-  data: T[] | undefined | null, 
+  data: T[] | undefined | null,
   valueField: string = 'value'
 ): T[] {
   if (!data) {
     return [];
   }
-  
+
   return filterValidData(data, valueField);
 }

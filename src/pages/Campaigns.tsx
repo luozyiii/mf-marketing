@@ -13,7 +13,8 @@ const columns = [
     dataIndex: 'status',
     key: 'status',
     render: (status: string) => {
-      const color = status === '进行中' ? 'green' : status === '已结束' ? 'red' : 'blue';
+      const color =
+        status === '进行中' ? 'green' : status === '已结束' ? 'red' : 'blue';
       return <Tag color={color}>{status}</Tag>;
     },
   },
@@ -32,8 +33,12 @@ const columns = [
     key: 'action',
     render: () => (
       <Space size="middle">
-        <Button type="link" icon={<EditOutlined />}>编辑</Button>
-        <Button type="link" danger icon={<DeleteOutlined />}>删除</Button>
+        <Button type="link" icon={<EditOutlined />}>
+          编辑
+        </Button>
+        <Button type="link" danger icon={<DeleteOutlined />}>
+          删除
+        </Button>
       </Space>
     ),
   },
@@ -80,7 +85,7 @@ export const Campaigns: React.FC = () => {
           pagination={{
             showSizeChanger: true,
             showQuickJumper: true,
-            showTotal: (total) => `共 ${total} 条记录`
+            showTotal: total => `共 ${total} 条记录`,
           }}
         />
       </Card>

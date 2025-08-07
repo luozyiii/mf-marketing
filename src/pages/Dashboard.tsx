@@ -1,9 +1,25 @@
 import React, { useState } from 'react';
-import { Card, Row, Col, Statistic, Typography, Tabs, Space, Tag, Table } from 'antd';
-import { ArrowUpOutlined, ArrowDownOutlined, UserOutlined, EyeOutlined, ShoppingCartOutlined, DollarOutlined } from '@ant-design/icons';
+import {
+  Card,
+  Row,
+  Col,
+  Statistic,
+  Typography,
+  Tabs,
+  Space,
+  Tag,
+  Table,
+} from 'antd';
+import {
+  ArrowUpOutlined,
+  ArrowDownOutlined,
+  UserOutlined,
+  EyeOutlined,
+  ShoppingCartOutlined,
+  DollarOutlined,
+} from '@ant-design/icons';
 import { Line, Column, Pie } from '@ant-design/charts';
 import dashboardData from './dashboardData.json';
-
 
 const { Title, Text } = Typography;
 
@@ -40,20 +56,29 @@ export const Dashboard: React.FC = () => {
     <div style={{ padding: '16px' }}>
       {/* 今日数据概览 */}
       <div style={{ marginBottom: 24 }}>
-        <Title level={4} style={{ marginTop: 0,marginBottom: 16 }}>今日数据概览</Title>
+        <Title level={4} style={{ marginTop: 0, marginBottom: 16 }}>
+          今日数据概览
+        </Title>
         <Row gutter={16}>
           <Col span={6}>
             <Card>
               <Statistic
                 title="活跃用户"
                 value={data.todayData.activeUsers.value}
-                formatter={(value) => formatNumber(Number(value))}
-                valueStyle={{ color: getTrendColor(data.todayData.activeUsers.trend) }}
+                formatter={value => formatNumber(Number(value))}
+                valueStyle={{
+                  color: getTrendColor(data.todayData.activeUsers.trend),
+                }}
                 prefix={<UserOutlined />}
                 suffix={
                   <Space>
                     {getTrendIcon(data.todayData.activeUsers.trend)}
-                    <Text style={{ color: getTrendColor(data.todayData.activeUsers.trend), fontSize: 12 }}>
+                    <Text
+                      style={{
+                        color: getTrendColor(data.todayData.activeUsers.trend),
+                        fontSize: 12,
+                      }}
+                    >
                       {data.todayData.activeUsers.change}%
                     </Text>
                   </Space>
@@ -66,12 +91,19 @@ export const Dashboard: React.FC = () => {
               <Statistic
                 title="新增用户"
                 value={data.todayData.newUsers.value}
-                valueStyle={{ color: getTrendColor(data.todayData.newUsers.trend) }}
+                valueStyle={{
+                  color: getTrendColor(data.todayData.newUsers.trend),
+                }}
                 prefix={<UserOutlined />}
                 suffix={
                   <Space>
                     {getTrendIcon(data.todayData.newUsers.trend)}
-                    <Text style={{ color: getTrendColor(data.todayData.newUsers.trend), fontSize: 12 }}>
+                    <Text
+                      style={{
+                        color: getTrendColor(data.todayData.newUsers.trend),
+                        fontSize: 12,
+                      }}
+                    >
                       {data.todayData.newUsers.change}%
                     </Text>
                   </Space>
@@ -84,13 +116,20 @@ export const Dashboard: React.FC = () => {
               <Statistic
                 title="页面浏览量"
                 value={data.todayData.pageViews.value}
-                formatter={(value) => formatNumber(Number(value))}
-                valueStyle={{ color: getTrendColor(data.todayData.pageViews.trend) }}
+                formatter={value => formatNumber(Number(value))}
+                valueStyle={{
+                  color: getTrendColor(data.todayData.pageViews.trend),
+                }}
                 prefix={<EyeOutlined />}
                 suffix={
                   <Space>
                     {getTrendIcon(data.todayData.pageViews.trend)}
-                    <Text style={{ color: getTrendColor(data.todayData.pageViews.trend), fontSize: 12 }}>
+                    <Text
+                      style={{
+                        color: getTrendColor(data.todayData.pageViews.trend),
+                        fontSize: 12,
+                      }}
+                    >
                       {Math.abs(data.todayData.pageViews.change)}%
                     </Text>
                   </Space>
@@ -104,12 +143,21 @@ export const Dashboard: React.FC = () => {
                 title="转化率"
                 value={data.todayData.conversionRate.value}
                 precision={2}
-                valueStyle={{ color: getTrendColor(data.todayData.conversionRate.trend) }}
+                valueStyle={{
+                  color: getTrendColor(data.todayData.conversionRate.trend),
+                }}
                 suffix={
                   <Space>
                     <Text>%</Text>
                     {getTrendIcon(data.todayData.conversionRate.trend)}
-                    <Text style={{ color: getTrendColor(data.todayData.conversionRate.trend), fontSize: 12 }}>
+                    <Text
+                      style={{
+                        color: getTrendColor(
+                          data.todayData.conversionRate.trend
+                        ),
+                        fontSize: 12,
+                      }}
+                    >
                       {data.todayData.conversionRate.change}%
                     </Text>
                   </Space>
@@ -122,7 +170,9 @@ export const Dashboard: React.FC = () => {
 
       {/* 过去7天趋势图表 */}
       <div style={{ marginBottom: 24 }}>
-        <Title level={4} style={{ marginBottom: 16 }}>过去7天数据趋势</Title>
+        <Title level={4} style={{ marginBottom: 16 }}>
+          过去7天数据趋势
+        </Title>
         <Tabs
           defaultActiveKey="1"
           items={[
@@ -132,7 +182,11 @@ export const Dashboard: React.FC = () => {
               children: (
                 <Row gutter={16}>
                   <Col span={12}>
-                    <Card title="活跃用户趋势" style={{ marginBottom: 16 }} className="chart-card">
+                    <Card
+                      title="活跃用户趋势"
+                      style={{ marginBottom: 16 }}
+                      className="chart-card"
+                    >
                       <Line
                         data={data.weeklyData.activeUsers}
                         xField="date"
@@ -158,7 +212,11 @@ export const Dashboard: React.FC = () => {
                     </Card>
                   </Col>
                   <Col span={12}>
-                    <Card title="新增用户趋势" style={{ marginBottom: 16 }} className="chart-card">
+                    <Card
+                      title="新增用户趋势"
+                      style={{ marginBottom: 16 }}
+                      className="chart-card"
+                    >
                       <Line
                         data={data.weeklyData.newUsers}
                         xField="date"
@@ -192,7 +250,11 @@ export const Dashboard: React.FC = () => {
               children: (
                 <Row gutter={16}>
                   <Col span={12}>
-                    <Card title="页面浏览量趋势" style={{ marginBottom: 16 }} className="chart-card">
+                    <Card
+                      title="页面浏览量趋势"
+                      style={{ marginBottom: 16 }}
+                      className="chart-card"
+                    >
                       <Column
                         data={data.weeklyData.pageViews}
                         xField="date"
@@ -200,7 +262,6 @@ export const Dashboard: React.FC = () => {
                         color="#722ed1"
                         height={200}
                         padding={[20, 20, 50, 50]}
-
                         xAxis={{
                           label: {
                             formatter: (text: any) => {
@@ -213,7 +274,11 @@ export const Dashboard: React.FC = () => {
                     </Card>
                   </Col>
                   <Col span={12}>
-                    <Card title="转化率趋势" style={{ marginBottom: 16 }} className="chart-card">
+                    <Card
+                      title="转化率趋势"
+                      style={{ marginBottom: 16 }}
+                      className="chart-card"
+                    >
                       <Line
                         data={data.weeklyData.conversionRate}
                         xField="date"
@@ -226,7 +291,6 @@ export const Dashboard: React.FC = () => {
                           size: 4,
                           shape: 'circle',
                         }}
-
                         xAxis={{
                           tickCount: 7,
                           label: {
@@ -253,13 +317,20 @@ export const Dashboard: React.FC = () => {
             <Statistic
               title="今日收入"
               value={data.todayData.revenue.value}
-              formatter={(value) => formatCurrency(Number(value))}
-              valueStyle={{ color: getTrendColor(data.todayData.revenue.trend) }}
+              formatter={value => formatCurrency(Number(value))}
+              valueStyle={{
+                color: getTrendColor(data.todayData.revenue.trend),
+              }}
               prefix={<DollarOutlined />}
               suffix={
                 <Space>
                   {getTrendIcon(data.todayData.revenue.trend)}
-                  <Text style={{ color: getTrendColor(data.todayData.revenue.trend), fontSize: 12 }}>
+                  <Text
+                    style={{
+                      color: getTrendColor(data.todayData.revenue.trend),
+                      fontSize: 12,
+                    }}
+                  >
                     {data.todayData.revenue.change}%
                   </Text>
                 </Space>
@@ -277,7 +348,12 @@ export const Dashboard: React.FC = () => {
               suffix={
                 <Space>
                   {getTrendIcon(data.todayData.orders.trend)}
-                  <Text style={{ color: getTrendColor(data.todayData.orders.trend), fontSize: 12 }}>
+                  <Text
+                    style={{
+                      color: getTrendColor(data.todayData.orders.trend),
+                      fontSize: 12,
+                    }}
+                  >
                     {data.todayData.orders.change}%
                   </Text>
                 </Space>
@@ -324,7 +400,6 @@ export const Dashboard: React.FC = () => {
               color="#eb2f96"
               height={200}
               padding={[20, 20, 50, 50]}
-
               xAxis={{
                 label: {
                   formatter: (text: any) => {
@@ -351,7 +426,6 @@ export const Dashboard: React.FC = () => {
               colorField="type"
               radius={0.8}
               label={false}
-
               legend={{
                 position: 'bottom',
               }}
@@ -373,7 +447,9 @@ export const Dashboard: React.FC = () => {
                   render: (text, record) => (
                     <Space>
                       <Text>{text}</Text>
-                      <Tag color={record.status === 'active' ? 'green' : 'orange'}>
+                      <Tag
+                        color={record.status === 'active' ? 'green' : 'orange'}
+                      >
                         {record.status === 'active' ? '进行中' : '已暂停'}
                       </Tag>
                     </Space>
@@ -383,14 +459,21 @@ export const Dashboard: React.FC = () => {
                   title: '点击率',
                   key: 'ctr',
                   render: (_, record) => (
-                    <Text>{((record.clicks / record.impressions) * 100).toFixed(2)}%</Text>
+                    <Text>
+                      {((record.clicks / record.impressions) * 100).toFixed(2)}%
+                    </Text>
                   ),
                 },
                 {
                   title: 'ROI',
                   key: 'roi',
                   render: (_, record) => (
-                    <Text style={{ color: record.revenue > record.cost ? '#52c41a' : '#ff4d4f' }}>
+                    <Text
+                      style={{
+                        color:
+                          record.revenue > record.cost ? '#52c41a' : '#ff4d4f',
+                      }}
+                    >
                       {((record.revenue / record.cost) * 100).toFixed(0)}%
                     </Text>
                   ),

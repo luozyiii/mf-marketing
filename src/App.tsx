@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import { marketingRoutes } from './routes';
@@ -91,8 +96,6 @@ const App: React.FC = () => {
       const newUrl = new URL(window.location.href);
       newUrl.searchParams.delete('token');
       window.history.replaceState({}, '', newUrl.toString());
-
-
     }
   }, []);
 
@@ -102,14 +105,14 @@ const App: React.FC = () => {
     if (currentConfig.isProduction) {
       // 在 GitHub Pages 上独立运行时使用 /mf-marketing
       // 在主应用中集成时，主应用会处理 /mf-shell/marketing 路径
-      return window.location.pathname.startsWith('/mf-marketing') ? currentConfig.basename : '';
+      return window.location.pathname.startsWith('/mf-marketing')
+        ? currentConfig.basename
+        : '';
     }
     return currentConfig.basename;
   };
 
   const basename = getBasename();
-
-
 
   return (
     <ConfigProvider locale={zhCN}>

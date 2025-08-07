@@ -71,7 +71,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
+  transition:
+    background 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s ease;
   font-size: 16px;
   background: transparent;
 }
@@ -216,17 +218,17 @@
   .rightLayoutCollapsed {
     margin-left: 0;
   }
-  
+
   .sider {
     position: fixed;
     height: 100vh;
     z-index: 1000;
   }
-  
+
   .welcomeText {
     display: none;
   }
-  
+
   .headerRight {
     gap: 12px;
   }

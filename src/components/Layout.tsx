@@ -10,7 +10,7 @@ import {
   SettingOutlined,
   ShoppingOutlined,
   BarChartOutlined,
-  LeftOutlined
+  LeftOutlined,
 } from '@ant-design/icons';
 import { marketingRoutes } from '../routes';
 import { AuthUtils } from '../utils/authUtils';
@@ -35,10 +35,10 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     {
       key: 'settings',
       icon: <SettingOutlined />,
-      label: '设置'
+      label: '设置',
     },
     {
-      type: 'divider' as const
+      type: 'divider' as const,
     },
     {
       key: 'logout',
@@ -47,19 +47,27 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       onClick: () => {
         // 使用AuthUtils处理退出登录
         AuthUtils.logout();
-      }
-    }
+      },
+    },
   ];
 
   // 构建菜单项
   const menuItems = useMemo(() => {
     return marketingRoutes.routes.map(route => ({
       key: route.path.replace('/marketing', ''),
-      icon: route.icon === 'DashboardOutlined' ? <DashboardOutlined /> :
-            route.icon === 'CampaignOutlined' ? <ShoppingOutlined /> :
-            route.icon === 'UserOutlined' ? <UserOutlined /> :
-            route.icon === 'BarChartOutlined' ? <BarChartOutlined /> : <DashboardOutlined />,
-      label: route.name
+      icon:
+        route.icon === 'DashboardOutlined' ? (
+          <DashboardOutlined />
+        ) : route.icon === 'CampaignOutlined' ? (
+          <ShoppingOutlined />
+        ) : route.icon === 'UserOutlined' ? (
+          <UserOutlined />
+        ) : route.icon === 'BarChartOutlined' ? (
+          <BarChartOutlined />
+        ) : (
+          <DashboardOutlined />
+        ),
+      label: route.name,
     }));
   }, []);
 
@@ -70,20 +78,22 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   // 获取当前页面信息
   const getCurrentPageInfo = () => {
     const pathname = location.pathname;
-    const route = marketingRoutes.routes.find(r => r.path.replace('/marketing', '') === pathname);
-    
+    const route = marketingRoutes.routes.find(
+      r => r.path.replace('/marketing', '') === pathname
+    );
+
     if (route) {
       return {
         title: route.name,
         showBack: route.showBack || false,
-        backPath: route.backPath?.replace('/marketing', '') || null
+        backPath: route.backPath?.replace('/marketing', '') || null,
       };
     }
-    
+
     return {
       title: '营销系统',
       showBack: false,
-      backPath: null
+      backPath: null,
     };
   };
 
@@ -107,32 +117,34 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           className={styles.sider}
           width={200}
         >
-        <div className={`${styles.logo} ${collapsed ? styles.logoCollapsed : styles.logoExpanded}`}>
-          {collapsed ? '营销' : '营销系统'}
-        </div>
+          <div
+            className={`${styles.logo} ${collapsed ? styles.logoCollapsed : styles.logoExpanded}`}
+          >
+            {collapsed ? '营销' : '营销系统'}
+          </div>
 
-        <div className={styles.menuContainer}>
-          <Menu
-            theme="dark"
-            mode="inline"
-            selectedKeys={[location.pathname]}
-            items={menuItems}
-            onClick={handleMenuClick}
-            className={styles.menu}
-          />
-        </div>
+          <div className={styles.menuContainer}>
+            <Menu
+              theme="dark"
+              mode="inline"
+              selectedKeys={[location.pathname]}
+              items={menuItems}
+              onClick={handleMenuClick}
+              className={styles.menu}
+            />
+          </div>
 
-        {/* 折叠按钮 */}
-        <div className={styles.collapseButtonContainer}>
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            className={styles.collapseButton}
-            title={collapsed ? '展开菜单' : '折叠菜单'}
-          />
-        </div>
-      </Sider>
+          {/* 折叠按钮 */}
+          <div className={styles.collapseButtonContainer}>
+            <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+              className={styles.collapseButton}
+              title={collapsed ? '展开菜单' : '折叠菜单'}
+            />
+          </div>
+        </Sider>
       )}
 
       <AntLayout className={styles.rightLayout}>
@@ -154,9 +166,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
 
           <div className={styles.headerRight}>
-            <div className={styles.welcomeText}>
-              营销系统 - 数据驱动增长
-            </div>
+            <div className={styles.welcomeText}>营销系统 - 数据驱动增长</div>
 
             <Dropdown
               menu={{ items: userMenuItems }}
@@ -170,21 +180,15 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                   className={styles.userAvatar}
                 />
                 <div className={styles.userDetails}>
-                  <div className={styles.userName}>
-                    营销专员
-                  </div>
+                  <div className={styles.userName}>营销专员</div>
                 </div>
-                <div className={styles.dropdownArrow}>
-                  ▼
-                </div>
+                <div className={styles.dropdownArrow}>▼</div>
               </div>
             </Dropdown>
           </div>
         </Header>
 
-        <Content className={styles.content}>
-          {children}
-        </Content>
+        <Content className={styles.content}>{children}</Content>
       </AntLayout>
     </AntLayout>
   );

@@ -44,8 +44,8 @@ export const AppSkeleton: React.FC = () => {
               {/* 模拟柱状图 */}
               <div className={styles.chartBars}>
                 {[...Array(7)].map((_, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className={styles.chartBar}
                     style={{ height: `${Math.random() * 60 + 20}%` }}
                   ></div>

@@ -37,7 +37,9 @@ const columns = [
     key: 'action',
     render: () => (
       <Space size="middle">
-        <Button type="link" icon={<EditOutlined />}>编辑</Button>
+        <Button type="link" icon={<EditOutlined />}>
+          编辑
+        </Button>
         <Button type="link">查看详情</Button>
       </Space>
     ),
@@ -88,7 +90,7 @@ export const Customers: React.FC = () => {
           pagination={{
             showSizeChanger: true,
             showQuickJumper: true,
-            showTotal: (total) => `共 ${total} 条记录`
+            showTotal: total => `共 ${total} 条记录`,
           }}
         />
       </Card>
