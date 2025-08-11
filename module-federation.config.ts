@@ -1,31 +1,11 @@
 import { createModuleFederationConfig } from '@module-federation/rsbuild-plugin';
+import { getBaseMFConfig } from './shared-config';
 
-export default createModuleFederationConfig({
-  name: 'marketing',
-  filename: 'remoteEntry.js',
-  exposes: {
-    './App': './src/App.tsx',
-  },
-  shared: {
-    react: {
-      singleton: true,
-      requiredVersion: false,
-      eager: false
+export default createModuleFederationConfig(
+  getBaseMFConfig('marketing', {
+    filename: 'remoteEntry.js',
+    exposes: {
+      './App': './src/App.tsx',
     },
-    'react-dom': {
-      singleton: true,
-      requiredVersion: false,
-      eager: false
-    },
-    'react-router-dom': {
-      singleton: true,
-      requiredVersion: false,
-      eager: false
-    },
-    antd: {
-      singleton: true,
-      requiredVersion: false,
-      eager: false
-    },
-  },
-});
+  })
+);
